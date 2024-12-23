@@ -38,7 +38,7 @@ const config = {
     path: isRunningWebpack
       ? path.resolve(__dirname, 'webpack-dist')
       : path.resolve(__dirname, 'rspack-dist'),
-    filename: '[name][contenthash:10].js',
+    filename: '[name].js',
     publicPath: 'auto',
     assetModuleFilename: 'static/asset/[name].[ext]',
     module: true,
@@ -60,10 +60,6 @@ const config = {
       {
         test: /\.svg$/,
         type: 'asset',
-      },
-      {
-        test: /\.js$/,
-        loader: path.join(__dirname, './test-loader.cjs'),
       },
       {
         resourceQuery: /raw/,
@@ -95,7 +91,6 @@ const config = {
             },
             generator: {
               filename: 'static/svg/[name].svg',
-              publicPath: 'auto'
             },
           },
         ],
